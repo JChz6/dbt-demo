@@ -1,0 +1,12 @@
+sources:
+  - name: nyc_bikes
+    database: demo
+    schema: demo_schema
+    tables:
+      - name: bike
+
+  - name: nyc_weather
+    database: demo
+    schema: demo_schema  
+    tables:
+      - name: weather_raw
