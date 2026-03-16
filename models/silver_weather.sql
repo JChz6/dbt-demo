@@ -1,13 +1,17 @@
+WITH data AS(
+    SELECT
+        data
+    FROM {{ source('nyc_weather', 'weather_raw') }}        
+)
 SELECT
-    data:city:findname AS city,
-    data:time AS timestamp,
-    data:city:coord:lat AS latitude,
-    data:city:coord:lon AS longitude,
-    data:clouds:all AS all_clouds,
-    data:main:grnd_level AS grnd_level,
-    data:main:humidity AS humidity,
-    data:main:pressure AS pressure,
-    data:main:temp AS temperature,
-    data:weather[0]:main AS main_weather
-FROM {{ source('nyc_weather', 'weather_raw') }}
-
+    data:city:findname::STRING AS city,
+    data:time::TIMESTAMP AS timestamp,
+    data:city:coord:lat::FLOAT AS latitude,
+    data:city:coord:lon::FLOAT AS longitude,
+    data:clouds:all::FLOAT AS all_clouds,
+    data:main:grnd_level::FLOAT AS grnd_level,
+    data:main:humidity::FLOAT AS humidity,
+    data:main:pressure::FLOAT AS pressure,
+    data:main:temp::FLOAT AS temperature,
+    data:weather[0]:main__STRING AS main_weather
+FROM data
