@@ -27,4 +27,3 @@ SELECT
 FROM aggregations a
 INNER JOIN weather_day w
 ON a.date = w.date
-;
