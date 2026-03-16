@@ -13,5 +13,5 @@ SELECT
     data:main:humidity::FLOAT AS humidity,
     data:main:pressure::FLOAT AS pressure,
     data:main:temp::FLOAT AS temperature,
-    data:weather[0]:main__STRING AS main_weather
+    data:weather[0]:main::STRING AS main_weather
 FROM data
