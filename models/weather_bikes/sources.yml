@@ -4,6 +4,7 @@ sources:
     schema: demo_schema
     tables:
       - name: bike
+      - name: bike_2018
 
   - name: nyc_weather
     database: demo
