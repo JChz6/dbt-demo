@@ -1,7 +1,7 @@
 WITH CTE AS (
     SELECT
         started_at
-    FROM {{ source('nyc_bikes', 'bike') }}
+    FROM {{ ref('stg_bike')}}
     )
 SELECT DISTINCT
     DATE(started_at) AS start_date,
@@ -9,4 +9,4 @@ SELECT DISTINCT
     HOUR(started_at) AS start_hour,
     {{businessday('started_at')}} AS businessday,
     {{season_of_year('started_at')}} AS season_macro  
-FROM UNIFIED
+FROM CTE
